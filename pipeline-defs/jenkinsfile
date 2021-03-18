@@ -1,0 +1,34 @@
+//Declarative pipeline syntax
+pipeline {
+    agent any  //Execute this pipline or any of its stages on any avilable agent (optional u can define specific agent)
+    stages{
+        stage('checkout branch') {
+            steps {
+                script {
+                    def i = 1
+                    sh "ls -la"
+                    if (i != 1 ) {
+                        error "condition failed"
+                    }
+
+                }
+                println "checkout branch"
+            }
+        }
+        stage('build repo') {
+            steps {
+                println "build code"
+            }
+        }
+        stage('QA test') {
+            steps {
+                println "build code"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                println "build code"
+            }
+        }
+    }
+}

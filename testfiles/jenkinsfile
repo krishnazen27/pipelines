@@ -1,7 +1,7 @@
 //Declarative pipeline syntax
 pipeline {
     agent {
-        docker 'maven:3-alpine'
+        any
     }
     stages{
         stage('checkout branch') {

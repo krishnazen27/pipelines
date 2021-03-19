@@ -18,7 +18,7 @@ pipelineJob('Webapp_Releases') {
         cpsScm {
             scm {
                 git {
-                    branch ($BRANCH_NAME)
+                    branch (${BRANCH_NAME})
                     remote {
                         credentials('')
                         url('https://github.com/krishnazen27/Calculator.git')

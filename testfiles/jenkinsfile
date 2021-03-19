@@ -1,16 +1,13 @@
 //Declarative pipeline syntax
 pipeline {
-    agent any  //Execute this pipline or any of its stages on any avilable agent (optional u can define specific agent)
+    agent {
+        docker 'maven:3-alpine'
+    }
     stages{
         stage('checkout branch') {
             steps {
                 script {
-                    def i = 1
                     sh "ls -la"
-                    if (i != 1 ) {
-                        error "condition failed"
-                    }
-
                 }
                 println "checkout branch"
             }

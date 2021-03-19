@@ -1,5 +1,5 @@
 // Scripted piplined syntax
-node (lable) {
+node {
 
 stage('checkout') {
     sh "ls -la"
@@ -10,8 +10,7 @@ stage('Build') {
 
 }
 stage('test'){
-    sh "mkdir krishna"
+    sh "df -ha"
 
 }
-
 }

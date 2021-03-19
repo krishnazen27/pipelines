@@ -26,7 +26,7 @@ pipelineJob('Webapp_Releases') {
                 }
             }
 
-            scriptPath('scripts/jobsteps.groovy')
+            scriptPath('script/jobsteps.groovy')
 
         } 
     }

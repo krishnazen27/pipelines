@@ -3,7 +3,7 @@ pipelineJob('Webapp_Releases') {
     parameters { 
         string { 
             name('BRANCH_NAME') 
-            defaultValue('dev') 
+            defaultValue('master') 
             description('The branch to be used from thebuild repo (case sensitive). Alternatively, use the commit ID. If left empty, dev branch will be picked') 
             trim(true) 
         } 
@@ -18,7 +18,7 @@ pipelineJob('Webapp_Releases') {
         cpsScm {
             scm {
                 git {
-                    branch ('master')
+                    branch ($BRANCH_NAME)
                     remote {
                         credentials('')
                         url('https://github.com/krishnazen27/Calculator.git')

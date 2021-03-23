@@ -1,13 +1,35 @@
-multibranchPipelineJob('Multibranch_PROD_Releases') { 
-    description("This job will only be used for regular release deployments to lower ORGS (DEV, QA, TEST, NFT)") 
-    branchsources {
-        git {
-            id ('123456789')
-            remote('https://github.com/krishnazen27/Calculator.git')
-            credentials('Github-Creds')
-            includes('*')
+multibranchPipelineJob('Mulibranch_POR-Release') {
+        factory {
+          workflowBranchProjectFactory {
+            scriptPath('Jenkinsfile')
+          }
         }
+        branchSources {
+          branchSource {
+            source {
+              gitSCMSource {
+                remote('https://github.com/krishnazen27/Calculator.git')
+                credentialsId('Github-Creds')
+                id('Multi-deploy')
+              }
+            }
+          buildStrategies {
+            buildAllBranches {
+              strategies {
+                skipInitialBuildOnFirstBranchIndexing()
+              }
+            }
+          }
+        }
+      }
+      triggers {
+        periodicFolderTrigger {
+          interval('1440')
+        }
+      }
+      configure { node ->
+        node / sources / data / 'jenkins.branch.BranchSource' / source / traits {
+          'jenkins.plugins.git.traits.BranchDiscoveryTrait'()
+        }
+      }
     }
-
-
-}

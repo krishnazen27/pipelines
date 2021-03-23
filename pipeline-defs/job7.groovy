@@ -1,4 +1,4 @@
-pipelineJob('NFT_Releases') { 
+pipelineJob('Salesforce3_Releases') { 
     description("This job will only be used for regular release deployments to lower ORGS (DEV, QA, TEST, NFT)") 
     parameters { 
         string { 

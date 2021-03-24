@@ -4,7 +4,7 @@ pipelineJob('Adobe1_Releases') {
         string { 
             name('BRANCH_NAME') 
             defaultValue('master') 
-            description('The branch to be used from thebuild repo (case sensitive). Alternatively, use the commit ID. If left empty, dev branch will be picked') 
+            description('The testing branch to be used from thebuild repo (case sensitive). Alternatively, use the commit ID. If left empty, dev branch will be picked') 
             trim(true) 
         } 
         choiceParam('DEPLOYMENT_ENV', ['dev', 'qa', 'test', 'uat', 'nft'], 'Please select the environment(ORG) to trigger deployment. Default will be dev org') 
